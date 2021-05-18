@@ -20,6 +20,11 @@ function compareTriplets(a, b) {
       score[1] += 1
     }
   }
-  
+
   return score
+}
+
+//Create function to add large integers
+function aVeryBigSum(ar) {
+  return ar.reduce((memo, num) => BigInt(memo) + BigInt(num), 0)
 }
