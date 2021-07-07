@@ -14,13 +14,19 @@ function vowelsAndConsonants(string) {
   }
 }
 
+
+
 function getArea(length, width) {
   return length * width
 }
 
+
+
 function getPerimeter(length, width) {
   return length * 2 + width * 2
 }
+
+
 
 function factorial(n) {
   if (n === 0) {
@@ -30,11 +36,15 @@ function factorial(n) {
   }
 }
 
+
+
 function circleAreaAndCircumference(radius) {
   const PI = Math.PI
   console.log(PI * Math.pow(radius, 2))
   console.log(2 * PI * radius)
 }
+
+
 
 function getGrade(score) {
   let grade;
@@ -56,6 +66,8 @@ function getGrade(score) {
   return grade;
 }
 
+
+
 //Not a good use of switch but required for example
 function getLetter(s) {
   let letter;
@@ -75,6 +87,8 @@ function getLetter(s) {
   return letter;
 }
 
+
+
 //Only works if no duplicate numbers in the nums array
 function getSecondLargest(nums) {
   if (nums.length === 1) {
@@ -85,9 +99,13 @@ function getSecondLargest(nums) {
   return nums[nums.length - 2]
 }
 
+
+
 //Note:
 //let max = Math.max.apply(null, arrayOfNums) 
 //returns the max in the arrayOfNums
+
+
 
 //Accounts for duplicates
 function getSecondLargest(nums) {
@@ -109,6 +127,8 @@ function getSecondLargest(nums) {
   return sorted[sorted.length - 2]
 }
 
+
+
 //Count objects in an array that meet given condition
 function count(objects) {
   let count = 0;
@@ -121,6 +141,8 @@ function count(objects) {
   
   return count;
 }
+
+
 
 //Reverse string and catch exceptions
 function reverseString(s) {
@@ -136,6 +158,8 @@ function reverseString(s) {
   }
 }
 
+
+
 //Handling errors - used most with user input or data from other sources
 let json = '{"language": "JavaScript"}';
 
@@ -148,6 +172,7 @@ try {
 } catch (error) {
   console.log("JSON Error: " + error.message)
 }
+
 
 
 //Currying function
@@ -184,6 +209,8 @@ const getISS = async () => {
   return data;
 }
 
+
+
 //fetch with .then chain
 const getISSData = () => {
   fetch(apiUrl)
@@ -193,6 +220,8 @@ const getISSData = () => {
     console.log(error)
   })
 }
+
+
 
 //throw custom errors
 function isPositive(num) {
@@ -204,6 +233,8 @@ function isPositive(num) {
     throw new Error("Negative Error")
   }
 }
+
+
 
 //class declaration
 class Triangle {
@@ -220,6 +251,8 @@ class Triangle {
 //const tri = new Triangle(25, 25)
 //tri.getPerimeter()
 
+
+
 //double even numbers, triple odd
 function doubleTriple(nums) {
   return nums.map(num => {
@@ -231,10 +264,14 @@ function doubleTriple(nums) {
   })
 }
 
+
+
 //given date, return day of week
 function getDay(date) {
   return new Date(date).toLocaleString('en-us', {weekday: 'long'})
 }
+
+
 
 //option 2
 function getDay(date) {
@@ -251,3 +288,49 @@ function getDay(date) {
   let dayIndex = new Date(date).getDay()
   return days[dayIndex]
 }
+
+
+
+//find strings that start and end w/ same vowel
+//first match set before | accounts for single letter entries
+const regEx = /^[aeiou]$|(^[aeiou]).+\1$/
+
+//console.log(regEx.test("aba")) 
+//true
+
+
+
+//find strings that start with title abbreviation followed by one or more letters 
+const regEx = /(^Mrs|Ms|Mr|Dr|Er)\.[a-zA-Z]+$/
+
+
+
+//match every integer in a string
+function getIntegers(string) {
+  return string.match(/\d+/g)
+}
+
+
+
+//tagged template literals
+//Argument: `The area is: ${s1 * s2}.\nThe perimeter is: ${2 * (s1 + s2)}.`
+function getSides(strings, ...expressions) {
+
+    let area = expressions[0];
+    let perimeter = expressions[1];
+
+    let s1 = (perimeter - Math.sqrt(Math.pow(perimeter, 2) - 16 * area)) / 4
+    let s2 = (perimeter + Math.sqrt(Math.pow(perimeter, 2) - 16 * area)) / 4
+
+    return [s1, s2]
+}
+
+//create a counter button
+const button = document.createElement('button')
+button.id = "btn"
+button.innerText = "0"
+document.body.appendChild(button)
+button.addEventListener('click', e => {
+  let currentValue = parseInt(e.target.innerText)
+  button.innerText = currentValue + 1
+})
