@@ -193,3 +193,61 @@ const getISSData = () => {
     console.log(error)
   })
 }
+
+//throw custom errors
+function isPositive(num) {
+  if (num > 0) return "YES"
+
+  if (num === 0) {
+    throw new Error("Zero Error")
+  } else if (num < 0 ) {
+    throw new Error("Negative Error")
+  }
+}
+
+//class declaration
+class Triangle {
+  constructor(sides) {
+      this.sides = sides
+  }
+  
+  getPerimeter() {
+      return this.sides.reduce((total, currentSide) => {
+          return total + currentSide
+      })
+  }
+}
+//const tri = new Triangle(25, 25)
+//tri.getPerimeter()
+
+//double even numbers, triple odd
+function doubleTriple(nums) {
+  return nums.map(num => {
+    if (num % 2 === 0) {
+      return num * 2
+    } else {
+      return num * 3
+    }
+  })
+}
+
+//given date, return day of week
+function getDay(date) {
+  return new Date(date).toLocaleString('en-us', {weekday: 'long'})
+}
+
+//option 2
+function getDay(date) {
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ]
+
+  let dayIndex = new Date(date).getDay()
+  return days[dayIndex]
+}
