@@ -82,3 +82,37 @@ function absDiagDiff(arr) {
 
   return Math.abs(sum(diagNums) - sum(diagNums2))
 }
+
+
+//calculate ratio of pos, neg and 0 in an array
+//frequency is numerator
+//length of array is denominator
+
+//sample input
+const ratioFinderArr = [-3, -5, 0, 6, 9]
+
+function toSixDecimals(num) {
+  return num.toFixed(6) //converts number to string
+}
+
+function ratioFinder(arr) {
+
+  let pos = 0
+  let neg = 0
+  let zero = 0
+  let denom = arr.length
+
+  arr.forEach(num => {
+    if (num === 0) {
+      zero++
+    } else if (num < 0) {
+      neg++
+    } else {
+      pos++
+    }
+  })
+
+  console.log(toSixDecimals(pos/denom))
+  console.log(toSixDecimals(neg/denom))
+  console.log(toSixDecimals(zero/denom))
+}
