@@ -116,3 +116,29 @@ function ratioFinder(arr) {
   console.log(toSixDecimals(neg/denom))
   console.log(toSixDecimals(zero/denom))
 }
+
+//print staircase
+function staircase(n) {
+  let space = " ";
+  let symbol = "#";
+
+  let numSpaces = n - 1;
+  let numSymbols = 1; 
+
+  while (numSymbols <= n) {
+
+    let row = []
+    for (let i = 1; i <= numSpaces; i++) {
+      row.push(space)
+    }
+
+    for (let i = 1; i <= numSymbols; i++) {
+      row.push(symbol)
+    }
+
+    console.log(row.join(""))
+
+    numSpaces--
+    numSymbols++
+  }
+}
