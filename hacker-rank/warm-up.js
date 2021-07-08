@@ -142,3 +142,56 @@ function staircase(n) {
     numSymbols++
   }
 }
+
+//Get min and max sum given array of 5 int, sum calculated using 4 ints 
+const minMaxArray = [1, 2, 3, 4, 5]
+
+function miniMax(arr) {
+  let sorted = arr.sort((a, b) => {
+    return a - b;
+  })
+
+  let min = 0;
+  for (let i = 0; i < 4; i++) {
+    min += sorted[i]
+  }
+
+  let max = 0;
+  for (let i = 1; i < 5; i++) {
+    max += sorted[i]
+  }
+
+  console.log(`${min} ${max}`)
+}
+
+
+//count frequency of largest number in array
+function countFrequency(arr) {
+  let max = Math.max(...arr)
+  let frequency = 0
+
+  arr.forEach(num => {
+    if (num === max) {
+      frequency++
+    }
+  })
+
+  return frequency
+}
+
+//convert 12hr time to 24hr time
+function toMiltaryTime(timeString) {
+  const dayPeriod = timeString.slice(-2) //AM or PM
+  const minSec = timeString.slice(3, 8)
+  let hour = timeString.slice(0, 2)
+
+  if (dayPeriod === "AM" && hour === "12") {
+    hour = "00"
+  }
+
+  if (dayPeriod === "PM" && hour !== "12") {
+    hour = (parseInt(hour) + 12).toString()
+  }
+
+  return hour + ":" + minSec
+}
