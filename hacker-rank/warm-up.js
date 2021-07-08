@@ -30,7 +30,7 @@ function aVeryBigSum(ar) {
 }
 
 //Given a square matrix, calculate the absolute difference between the sums of its diagonals
-//Attempt 1
+//Version 1 with 1D array as input
 const two = [2, 4, -1, 2, 3]
 const three = [3, 11, 2, 4, 4, 5, 6, 10, 8, -12]
 const four = [4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
@@ -61,4 +61,24 @@ function absDiffDiag(arr) {
   return Math.abs(sum(diagNums) - sum(diagNums2))
 }
 
+//Version 2 with 2D array as input
+//still utilize sum() function defined above
+const twoV2 = [[4, -1], [2, 3]]
+const threeV2 = [[11, 2, 4], [4, 5, 6], [10, 8, -12]]
 
+function absDiagDiff(arr) {
+  let diagNums = []
+  let diagNums2 = []
+  
+  let i = 0 
+  let j = 1
+
+  while (i < arr.length) {
+    diagNums.push(arr[i][i])
+    diagNums2.push(arr[i][arr.length - j])
+    j++
+    i++
+  }
+
+  return Math.abs(sum(diagNums) - sum(diagNums2))
+}
