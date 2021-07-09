@@ -34,3 +34,14 @@ function countInclusive(s, t, a, b, aDistances, bDistances) {
   console.log(inRangeCount(aXAxisValues));
   console.log(inRangeCount(bXAxisValues));
 }
+
+//find where two moving objects move to same point given starting point and velocity, if at all
+function doTheyMeet(x1, v1, x2, v2) {
+  if (v2 >= v1) {
+    return "NO"
+  } 
+
+  if (x1-x2 % v2-v1 === 0) {
+    return "YES"
+  } 
+}
