@@ -16,3 +16,21 @@ there would be a remainder left over.
 Math.ceil(num/3) rounds this decimal value up to the nearest whole number,
 which is the factor we need to generate the next closest multiple of 3.
 */
+
+//inclusive range challenge
+function countInclusive(s, t, a, b, aDistances, bDistances) {
+  const inRangeCount = arr => {
+    return arr.filter(num => num >= s && num <= t).length
+  }
+
+  let aXAxisValues = aDistances.map(distance => {
+    return distance + a 
+  })
+
+  let bXAxisValues = bDistances.map(distance => {
+    return distance + b
+  })
+
+  console.log(inRangeCount(aXAxisValues));
+  console.log(inRangeCount(bXAxisValues));
+}
