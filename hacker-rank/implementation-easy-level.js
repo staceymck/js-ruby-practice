@@ -45,3 +45,60 @@ function doTheyMeet(x1, v1, x2, v2) {
     return "YES"
   } 
 }
+
+
+
+/*return element with highest frequency; if elements share frequency, 
+return element with lowest value */
+function getFrequencyV1(arr) {
+  let type1 = {type: 1, frequency: 0}
+  let type2 = {type: 2, frequency: 0}
+  let type3 = {type: 3, frequency: 0}
+  let type4 = {type: 4, frequency: 0}
+  let type5 = {type: 5, frequency: 0}
+  
+  arr.forEach(num => {
+      if (num === type1.type) {
+          type1.frequency++
+      } else if (num === type2.type) {
+          type2.frequency++
+      } else if (num === type3.type) {
+          type3.frequency++
+      } else if (num === type4.type) {
+          type4.frequency++
+      } else {
+          type5.frequency++
+      }
+  })
+  
+  let frequencies = [type1, type2, type3, type4, type5]
+  let sortedFreq = frequencies.sort((a,b) => {
+      if (a.frequency < b.frequency) {
+          return 1;
+      }
+      if (a.frequency > b.frequency) {
+          return -1;
+      }
+      return 0;
+  })
+
+  // [{type: 3, frequency: 5}, {type: 1, frequency: 5}, {type: 2, frequency: 2}]
+  let maxList = [sortedFreq[0]]
+  sortedFreq.forEach((obj, index) => {
+      if (obj.frequency === maxList.frequency) {
+          maxList.push(obj)
+      }
+  })
+  
+  let sortedTypes = maxList.sort((a,b) => {
+      if (a.type > b.type) {
+          return 1;
+      }
+      if (a.type < b.type) {
+          return -1;
+      }
+      return 0;
+  })
+  
+  return sortedTypes[0].type
+}
