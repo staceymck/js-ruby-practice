@@ -12,6 +12,11 @@ function addUp(num) {
 addUp(4) // 10
 addUp(13) //91
 
+//alt solution
+function addUpTo(num) {
+  return n * (n + 1) / 2;
+}
+
 
 //Create a function that takes an integer, minutes, and converts it to seconds
 function minToSec(minutes) {
