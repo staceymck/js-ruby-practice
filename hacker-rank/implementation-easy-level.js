@@ -102,3 +102,26 @@ function getFrequencyV1(arr) {
   
   return sortedTypes[0].type
 }
+
+
+//refactor getFrequency function
+function getFrequencyV2(arr) {
+  let frequencies = Array(6).fill(0) 
+  /*need to set initial values otherwise will result in NaN values when we try
+  to add to it (also empty 1st value) */
+
+  arr.forEach(num => {
+    frequencies[num]++
+  })
+
+  // first index frequencies[0] is empty placeholder
+
+  let max = 0
+  for (let i = 1; i < frequencies.length; i++) {
+    if(frequencies[i] > frequencies[max]) {
+      max = i
+    }
+  }
+
+  return max
+}
