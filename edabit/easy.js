@@ -54,8 +54,51 @@ function leftShiftMimic(x, y) {
   return x * multiplier
 } 
 
+//Return [min, max] given array
+function minMax(arr) {
+  let result = []
+  result.push(Math.min.apply(null, arr)) //apply accepts a context (null takes 'context' position and is arbitrary in this use case)
+  result.push(Math.max.apply(null, arr)) //followed by an array of arguments to be used inside the Math function apply was called on 
 
+  //alt ES6 syntax is Math.min(...arr) and Math.max(...arr)
+  return result
+}
 
+//Deeper dive with Math.min and Math.max
+//Use as boundary/clip tool
+function clip(num, limit) {
+  if (num > limit) { 
+    num = limit //return lowest value
+  }
+  return num
+}
 
+function clipWithMin(num, limit) {
+  return Math.min(num, limit) //return lowest value
+}
 
+//Both only accept list of comma separated values, not arrays
+function getMin(array) { 
+  return Math.min(...array) //accepts list of numbers, not arrays by default so need to spread
+}
 
+function getMax(array) {
+  return Math.max(...array)
+}
+
+//Get min & max without Math.min() or Math.max()
+function getMinMax(arr) {
+  let min = arr[0]
+  let max = arr[0]
+  for (let i = 1; i <= arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i]
+    }
+
+    if (arr[i] > max) {
+      max = arr[i]
+    }
+  }
+
+  return [min, max]
+}
