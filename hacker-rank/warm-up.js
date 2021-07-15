@@ -195,3 +195,38 @@ function toMiltaryTime(timeString) {
 
   return hour + ":" + minSec
 }
+
+//fizzbuzz
+function fizzBuzzFor() {
+  for (let i = 1; i <=100; i++) {
+    let word = "";
+
+    if (i % 3 === 0) {
+      word = "Fizz";
+    }
+    
+    if (i % 5 === 0) {
+      word += "Buzz";
+    }
+
+    console.log(word || i)
+  }
+}
+
+function fizzBuzzWhile() {
+  let i = 1;
+  while (i <= 100) {
+    let word = "";
+
+    if (i % 3 === 0) {
+      word = "Fizz";
+    }
+    
+    if (i % 5 === 0) {
+      word += "Buzz";
+    }
+
+    console.log(word || i)
+    i++
+  }
+}
