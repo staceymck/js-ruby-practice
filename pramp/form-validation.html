@@ -34,6 +34,73 @@
     </form>
 </div>
 <script>
+      
+      const form = document.getElementById("form")
+  const messages = []
+
+  const handleErrors = () => {
+    const errorList = document.createElement("ul")
+    errorList.id = "errors"
+
+    messages.forEach(msg => {
+      let li = document.createElement("li")
+      li.innerHTML = msg
+      errorList.appendChild(li)
+    })
+
+    form.appendChild(errorList)    
+
+    messages.length = 0
+  }
+
+  const clearErrors = () => {
+    const errorList = document.getElementById("errors")
+    if (errorList) errorList.remove()
+  }
+
+  const isComplete = () => {
+    const fields = Array.from(document.querySelectorAll(".field > input"))
+
+    return fields.every(field => {
+      return field.value !== ""
+    })
+  }
+
+  const isValidEmail = () => {
+    const email = document.getElementById("email").value
+    const emailReg = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/
+
+    const status = emailReg.test(email)
+    if (!status) messages.push("Invalid email")
+    console.log(status)
+
+    return status
+  }
+
+  const isMatch = () => {
+    const password = document.getElementById("password").value
+    const passwordConfirm = document.getElementById("password-confirm").value
+
+    const status = password === passwordConfirm
+    if (!status) messages.push("Passwords must match")
+    console.log(status)
+
+    return status
+  }
+
+  const handleSubmit = e => {
+    const completed = isComplete()
+    const valid = isValidEmail()
+    const matched = isMatch()
+    
+    if (!completed || !valid || !matched) {
+      e.preventDefault()
+      handleErrors()
+    }
+  }
+
+  form.addEventListener("submit", handleSubmit);
+  form.addEventListener("click", clearErrors);
 </script>
 </body>
 </html>
