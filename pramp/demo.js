@@ -24,8 +24,9 @@ function letterClippings(l, n) {
 }
 
 
-//forEach does not work for this
-//you can only break a forEach by throwing an exception
+/*NOTE: forEach does not work for this because
+you can ONLY break a forEach by throwing an exception, which
+is a signal it might not be the right fit for the use case */
 function letterClippings(l, n) {
   
   let letterArr = l.split("")
