@@ -110,3 +110,13 @@ function isDec24(dateObj) {
   //days of week are 0 - 6; Sun = 0; getDay()
   return dateObj.getMonth() === 11 && dateObj.getDate() === 24 ? true : false
 }
+
+//check if array can be nested in another
+function isNestable(arr1, arr2) {
+  let arr1Min = Math.min(...arr1),
+      arr2Min = Math.min(...arr2),
+      arr1Max = Math.max(...arr1),
+      arr2Max = Math.max(...arr2)
+
+    return arr1Min > arr2Min && arr1Max < arr2Max ? true : false
+}
