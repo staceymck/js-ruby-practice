@@ -108,7 +108,7 @@ function isDec24(dateObj) {
   //months are 0 - 11, Jan = 0 & Dec = 11; getMonth()
   //dates are 1 - 31; getDate()
   //days of week are 0 - 6; Sun = 0; getDay()
-  return dateObj.getMonth() === 11 && dateObj.getDate() === 24 ? true : false
+  return dateObj.getMonth() === 11 && dateObj.getDate() === 24
 }
 
 //check if array can be nested in another
@@ -118,5 +118,5 @@ function isNestable(arr1, arr2) {
       arr1Max = Math.max(...arr1),
       arr2Max = Math.max(...arr2)
 
-    return arr1Min > arr2Min && arr1Max < arr2Max ? true : false
+    return arr1Min > arr2Min && arr1Max < arr2Max
 }
