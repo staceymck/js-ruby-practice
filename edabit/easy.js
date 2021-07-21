@@ -102,3 +102,11 @@ function getMinMax(arr) {
 
   return [min, max]
 }
+
+//Determine if given date is Dec 24
+function isDec24(dateObj) {
+  //months are 0 - 11, Jan = 0 & Dec = 11; getMonth()
+  //dates are 1 - 31; getDate()
+  //days of week are 0 - 6; Sun = 0; getDay()
+  return dateObj.getMonth() === 11 && dateObj.getDate() === 24 ? true : false
+}
