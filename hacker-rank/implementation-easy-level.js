@@ -146,3 +146,20 @@ function brokenRecordCount(scores) {
 
   return count
 }
+
+//find number of subarrays that meet given criteria
+function subarrays(arr, d, m) {
+  let count = 0
+  //m = segment contains m elements
+  //d = ints in segment must sum to equal d
+
+  for (let i = 0; i <= (arr.length - m); i++) {
+    let segment = arr.slice(i, (i + m))
+    let sum = segment.reduce((accum, currentValue) => {
+      return accum + currentValue
+    })
+    if (sum === d) count++
+  }
+
+  return count
+}
