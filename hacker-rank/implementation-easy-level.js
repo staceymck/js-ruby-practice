@@ -125,3 +125,24 @@ function getFrequencyV2(arr) {
 
   return max
 }
+
+
+function brokenRecordCount(scores) {
+  let leastPoints = scores[0]
+  let mostPoints = scores[0]
+  let count = [0, 0] // [most, least]
+
+  for (let i = 1; i <= scores.length; i++) {
+    let score = scores[i]
+
+    if (score < leastPoints) {
+      leastPoints = score
+      count[1]++
+    } else if (score > mostPoints) {
+      mostPoints = score
+      count[0]++
+    }
+  }
+
+  return count
+}
