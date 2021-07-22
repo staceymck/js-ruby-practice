@@ -163,3 +163,29 @@ function subarrays(arr, d, m) {
 
   return count
 }
+
+
+/* 
+Find pairs that match given criteria
+Inputs:
+total = positive int
+arr = array of ints
+
+Return:
+# of pairs where one int precedes the other in the array
+& their sum is equal to k
+
+pairs don't have to be adjacent
+*/
+function findValidPairs(total, arr) {
+  let count = 0
+
+  for (let i = 0; i <= arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      let isDivisible = (arr[i] + arr[j]) % total === 0
+      if (isDivisible) count++
+    }
+  }
+
+  return count
+}
