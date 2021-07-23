@@ -189,3 +189,34 @@ function findValidPairs(total, arr) {
 
   return count
 }
+
+
+/*
+Time Machine
+Inputs: y = year
+
+Return: 256th day in dd.mm.yyyy format as string
+*/
+
+function get256Date(y) {
+  //figure out which calendar system we're using
+  //then figure out if it's a leap year according to that system
+  //if leap year, then subtract 1 from day of month
+
+  let day = 13
+
+  if (y < 1917) {
+    //Julian
+    if (y % 4 === 0) day = 12
+  } else if (y === 1918) {
+    //Feb 14 = day 32
+    day = 26
+  } else {
+    //Gregorian
+    if (y % 400 === 0 || (y % 4 === 0 && y % 100 !== 0)) {
+      day = 12
+    }
+  }
+
+  return `${day}.09.${y}`
+}
