@@ -220,3 +220,14 @@ function get256Date(y) {
 
   return `${day}.09.${y}`
 }
+
+//print 'correct' or the difference to be paid based on input values
+function calculateBill(bill, k, b) {
+    
+  let totalToSplit = bill.reduce((total, currentPrice) => {
+      return total + currentPrice
+  }) - bill[k]
+  
+  let diff = b - totalToSplit/2
+  return diff === 0 ?  "Correct" : diff
+}
