@@ -231,3 +231,37 @@ function calculateBill(bill, k, b) {
   let diff = b - totalToSplit/2
   return diff === 0 ?  "Correct" : diff
 }
+
+
+/* given array of integers, return total number of pairs (same int value)
+that can be made from the array */
+
+function findPairs(n, ar) {
+  // create an object to track frequency of each number
+  // iterate over array and track the frequency
+      //if num is already in object, increase count by one
+      //if num isn't present, set count to one
+  //create a variable to hold the total pair count
+  //iterate over the frequencies object - for each key/value pair,
+      //calculate the Math.floor of the value / 2 to get # of pairs
+      //add this pair count to the total pair count amount
+  //return total pair count
+  
+  let map = {}
+  
+  for (let i = 0; i < ar.length; i++) {
+      let num = ar[i]
+      if (map[num]) {
+          map[num]++
+      } else {
+          map[num] = 1
+      }
+  }
+
+  let totalCount = 0
+  for (let num in map) {
+      totalCount += Math.floor(map[num]/2)
+  }
+  
+  return totalCount
+}
