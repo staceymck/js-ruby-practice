@@ -265,3 +265,40 @@ function findPairs(n, ar) {
   
   return totalCount
 }
+
+function getPageTurns(n, p) {
+  // account for edge cases where p is equal to n, n-1, or 1
+  // get pg turns from front:
+    //if p is odd, subtract 1 from p then divide by 2
+    //else divide p by 2
+  // get pg turns from front to end:
+    //if n is odd, subtract 1 from p then divide by 2
+    //else divide n by 2
+  // get turns from end: turns from front - turns to end
+  // compare pgTurnsFromFront to pgTurnsFromEnd
+  // return the smaller value
+  
+  if (p === n || (n % 2 !== 0 && p === n - 1) || p === 1) {
+      return 0;
+  }
+  
+  let turnsFromFront;
+
+  if (p % 2 !== 0) {
+      turnsFromFront = (p - 1)/2;
+  } else {
+      turnsFromFront = p/2;
+  }
+  
+  let turnsFrontToEnd;
+
+  if (n % 2 !== 0) {
+      turnsFrontToEnd = (n - 1)/2;
+  } else {
+      turnsFrontToEnd = n/2;
+  }
+
+  let turnsFromEnd = turnsFrontToEnd - turnsFromFront;
+
+  return turnsFromFront > turnsFromEnd ? turnsFromEnd : turnsFromFront;
+}
