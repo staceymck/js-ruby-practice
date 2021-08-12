@@ -48,3 +48,16 @@ function triangle(row) {
   
   return color
 }
+
+ // Create a function that returns the number of integers needed to fill in gaps between numbers
+ // in arr to create a consecutive list of nums
+ function consecutive(arr) {
+  let count = 0
+  let sorted = arr.sort((a,b) => b - a)
+  
+  for (let i = 0; i < sorted.length - 1; i++) {
+      count += (sorted[i] - sorted[i+1] - 1)
+  }
+  
+  return count
+}
