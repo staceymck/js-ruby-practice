@@ -61,3 +61,15 @@ function triangle(row) {
   
   return count
 }
+
+// Alternative solution to consecutive() above
+function consecutiveV2(arr) {
+  if (arr.length === 0 || arr.length === 1) {
+    return 0
+  }
+  let max = Math.max(...arr)
+  let min = Math.min(...arr)
+  
+  let diff = max - min
+  return diff - (arr.length - 2) - 1
+}
