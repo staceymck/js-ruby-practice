@@ -14,3 +14,37 @@ function teamAmounts(array){
   
   return [team1, team2]
 }
+
+
+function triangle(row) {
+  if (row.length === 1) return row[0]
+  
+  let color;
+  let j = 1;
+  let tempRow = ""
+  let newRow = row
+  let pair1 = ["G", "B"]
+  let pair2 = ["R", "B"]
+  
+  while (newRow.length > 1) {
+  for (let i = 0; j < newRow.length; i++) {
+      if (newRow[i] === newRow[j]) {
+        tempRow += (row[i])
+      } else {
+        if (pair1.includes(newRow[i]) && pair1.includes(newRow[j])) {
+          tempRow += "R"
+        } else if (pair2.includes(newRow[i]) && pair2.includes(newRow[j])) {
+          tempRow += "G"
+        } else {
+          tempRow += "B"
+        }
+      }
+    console.log("new row is " + tempRow)
+    j++
+  }
+    newRow = tempRow
+  }
+  console.log(newRow)
+  
+  return color
+}
