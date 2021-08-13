@@ -73,3 +73,11 @@ function consecutiveV2(arr) {
   let diff = max - min
   return diff - (arr.length - 2) - 1
 }
+
+// Write a function that determines if your score is better than class average
+function higherThanAverage(classScoreArr, yourScore) {
+  let total = classScoreArr.reduce((accum, currentTotal) => accum + currentTotal)
+  let avg = total/classScoreArr.length
+  
+  return yourScore > avg
+}
