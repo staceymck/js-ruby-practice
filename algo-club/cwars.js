@@ -89,3 +89,36 @@ function removeRotten(fruitBox){
 
   return fruitBox.map(fruit => fruit.replace("rotten", "").toLowerCase())
 }
+
+
+// Write a function that determines points for two sides based on given set of character values
+function alphabetWar(fight) {
+  let leftTotal = 0
+  let rightTotal = 0
+  
+  let left = {
+    "w": 4,
+    "p": 3,
+    "b": 2,
+    "s": 1
+  }
+  
+  let right = {
+    "m": 4,
+    "q": 3,
+    "d": 2,
+    "z": 1
+  }
+
+  for (let char of fight) {
+    if (right[char]) {
+      rightTotal += right[char]
+    } else if (left[char]) {
+      leftTotal += left[char]
+    }
+  }
+  
+  if (leftTotal > rightTotal) return "Left side wins!"
+  if (leftTotal < rightTotal) return "Right side wins!"
+  return "Let's fight again!";
+}
