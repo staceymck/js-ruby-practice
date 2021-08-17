@@ -14,3 +14,19 @@ var removeRepeats = function(nums) {
   }
   return i + 1
 };
+
+// Find highest altitude in trip given an array of gains. Alt starts at 0.
+var largestAltitude = function(gain) {
+    let max = 0
+    let currentAlt = 0
+    
+    for (let i = 0; i < gain.length; i++) {
+        currentAlt = currentAlt += gain[i]
+        
+        if (currentAlt > max) {
+            max = currentAlt
+        }
+    }
+    
+    return max
+}; 
