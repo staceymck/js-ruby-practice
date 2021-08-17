@@ -81,3 +81,11 @@ function higherThanAverage(classScoreArr, yourScore) {
   
   return yourScore > avg
 }
+
+
+// Write a function that removes the word 'rotten' from strings in an array
+function removeRotten(fruitBox){
+  if (!fruitBox) return []
+
+  return fruitBox.map(fruit => fruit.replace("rotten", "").toLowerCase())
+}
