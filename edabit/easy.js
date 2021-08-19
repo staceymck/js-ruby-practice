@@ -128,3 +128,8 @@ const largestSwitch = num => {
 
   return num > swap
 }
+
+// Calculate number of squares in an n * n grid
+const squarePyramidalNumber = n => {
+  return n * (n + 1) * (2 * n + 1)/6
+}
