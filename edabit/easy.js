@@ -133,3 +133,13 @@ const largestSwitch = num => {
 const squarePyramidalNumber = n => {
   return n * (n + 1) * (2 * n + 1)/6
 }
+
+// Given two arrays with same elements except one, determine which array contains higher different value.
+function firstSuperior(arr1, arr2) {
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return arr1[i] > arr2[i]
+    }
+  }
+  return false
+}
