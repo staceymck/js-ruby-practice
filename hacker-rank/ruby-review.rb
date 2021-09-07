@@ -76,3 +76,22 @@ end
 def remove_all_instances(arr, element)
   arr.delete(element)
 end
+
+# Selection methods
+  # Non-destructive
+  def select_odd(arr)
+      arr.select {|a| a % 2 != 0}
+  end
+
+  def reject_multiples_3(arr)
+    arr.reject {|a| a % 3 == 0}
+  end
+
+  # Destructive
+  def delete_neg_elements(arr)
+    arr.delete_if {|a| a < 0}
+  end
+
+  def keep_non_neg_elements(arr)
+    arr.keep_if {|a| a >= 0}
+  end
