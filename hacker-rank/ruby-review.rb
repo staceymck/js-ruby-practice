@@ -20,3 +20,29 @@ def determine_class(obj)
     puts "It's an unknown model"
   end
 end
+
+# Accessing elements in arrays
+def element_at(arr, index)
+  arr[index]
+  # or arr.at(index)
+end
+
+def inclusive_range(arr, start_idx, end_idx)
+  arr[start_idx..end_idx]
+end
+
+def non_inclusive_range(arr, start_idx, end_idx)
+  arr[start_idx...end_idx]
+end
+
+def start_and_length(arr, start_idx, length)
+  arr[start_idx,length]
+end
+
+def get_first_x_elements(arr, x_elements)
+  arr.take(x)
+end
+
+def drop_first_x_elements(arr, x_elements)
+  arr.drop(x)
+end
