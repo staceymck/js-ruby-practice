@@ -59,3 +59,20 @@ end
 def insert_element(arr, index, element)
   arr.insert(index, element)
 end
+
+# Remove from an array
+def remove_from_end(arr)
+  arr.pop
+end
+
+def remove_from_start(arr)
+  arr.shift
+end
+
+def remove_at_index(arr, index)
+  arr.delete_at(index)
+end
+
+def remove_all_instances(arr, element)
+  arr.delete(element)
+end
