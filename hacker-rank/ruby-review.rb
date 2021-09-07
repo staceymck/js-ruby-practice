@@ -46,3 +46,16 @@ end
 def drop_first_x_elements(arr, x_elements)
   arr.drop(x)
 end
+
+# Add to an array
+def add_to_end(arr, element)
+  arr.push(element)
+end
+
+def add_to_start(arr, element)
+  arr.unshift(element)
+end
+
+def insert_element(arr, index, element)
+  arr.insert(index, element)
+end
