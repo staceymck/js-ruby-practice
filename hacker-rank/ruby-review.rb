@@ -109,3 +109,24 @@ d_hash.default = 0
 # Option 2
 d2_hash = Hash.new(-1)
 #d2_hash.default => -1
+
+# Add key-value pairs to hash
+  hash_add = Hash.new
+  hash_add.default = 0
+
+  # Approach 1
+  hash_add["key_one"] = "value_one"
+
+  # Approach 2
+  hash_add.store("key_two", "value_two")
+  hash_add.store(2, "Second Quarter")
+
+# Delete key-value pairs from hash
+  # Symbols
+  hash_delete = {name: "Dail", age: 65}
+  hash_delete.delete(:name)
+
+  # Standard keys
+  hash_delete_2 = {"name" => "Dail", "age" => 65}
+  hash_delete_2.delete("name")
+  
