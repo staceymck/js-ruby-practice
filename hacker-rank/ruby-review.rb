@@ -95,3 +95,17 @@ end
   def keep_non_neg_elements(arr)
     arr.keep_if {|a| a >= 0}
   end
+
+# Initialize hashes & set default value
+# Ruby docs - If key not found, returns default value. This is determined by
+# its default proc (if exists) or else its default (set initially to nil)
+
+# Can read and set default for hash
+# Option 1
+d_hash = Hash.new
+d_hash.default = 0
+#d_hash.default => 0
+
+# Option 2
+d2_hash = Hash.new(-1)
+#d2_hash.default => -1
