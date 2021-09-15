@@ -130,3 +130,12 @@ d2_hash = Hash.new(-1)
   hash_delete_2 = {"name" => "Dail", "age" => 65}
   hash_delete_2.delete("name")
   
+# Enumerables"
+  # each_with_index
+  new_array_with_skip(arr, skip_index) do
+    new_arr = []
+    arr.each_with_index do |item, index|
+      new_arr.push("#{index}: #{item}") if index >= skip_index
+    end
+    new_arr
+  end
